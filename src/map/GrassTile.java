@@ -14,23 +14,33 @@ public class GrassTile extends Tile {
     public void draw() {
         this.gSketch.fill(255);
         this.gSketch.rect(
-            tileContainer.getX(), 
-            tileContainer.getY(), 
-            tileContainer.getWidth(), 
-            tileContainer.getHeight()
+            tileContainer.l, 
+            tileContainer.t, 
+            tileContainer.w, 
+            tileContainer.h
         );
 
         this.gSketch.textSize(8f);
         this.gSketch.fill(0);
         this.gSketch.text(
-            "x:"+tileContainer.getX(),
-            tileContainer.getX(), 
-            tileContainer.getY() + 10
+            "t:"+tileContainer.ol,
+            tileContainer.l, 
+            tileContainer.t + 10
         );
         this.gSketch.text(
-            "y:"+tileContainer.getY(),
-            tileContainer.getX(), 
-            tileContainer.getY() + 20
+            "l:"+tileContainer.t,
+            tileContainer.l, 
+            tileContainer.t + 20
+        );
+        this.gSketch.text(
+            "r:"+tileContainer.or,
+            tileContainer.l, 
+            tileContainer.t + 30
+        );
+        this.gSketch.text(
+            "b:"+tileContainer.b,
+            tileContainer.l, 
+            tileContainer.t + 40
         );
     }
 

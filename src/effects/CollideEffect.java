@@ -1,7 +1,6 @@
 package effects;
 
 import gamecomponents.Hitbox;
-import java.awt.Rectangle;
 
 public class CollideEffect implements HitBoxEffect {
 
@@ -13,37 +12,56 @@ public class CollideEffect implements HitBoxEffect {
 
     @Override
     public void apply(Hitbox hitbox) {
-        int collisionTol = 3;
 
-        Rectangle entityRect = hitbox.getRectContainer();
-        Rectangle tileRect = tileContainer.getRectContainer();
+        if (hitbox.b < tileContainer.t || hitbox.t > tileContainer.b || hitbox.l > tileContainer.r
+                || hitbox.r < tileContainer.l) {
 
-        if (entityRect.intersects(tileRect)) {
+        } else {
 
-            if (Math.abs(entityRect.getMaxY() - tileRect.y) < collisionTol) {
-                //hitbox.moveTo(hitbox.getX(), (float)entityRect.y - 1);
-                hitbox.moveRelative(0, -1.5f);
+            /* if (hitbox.r >= tileContainer.l && hitbox.or < tileContainer.ol) {
+
+                hitbox.setRight(tileContainer.l - 0.1f);
+                hitbox.vx = tileContainer.vx;
+                System.out.println("que pasa");
+            }
+            
+            if (hitbox.l <= tileContainer.r && hitbox.ol > tileContainer.or) {
+
+                hitbox.setLeft(tileContainer.r + 0.1f);
+                hitbox.vx = tileContainer.vx;
+                System.out.println("que pasa2");
+
             }
 
-            if (Math.abs(tileRect.getMaxY() - entityRect.y) < collisionTol) {
-                System.out.println("up");
-                hitbox.moveRelative(0, 1f);
-            }
+            if (hitbox.b >= tileContainer.t && hitbox.ob < tileContainer.ot) {
 
-            if (Math.abs(entityRect.getMaxX() - tileRect.x) < collisionTol) {
-                System.out.println("tile right, ent left");
-                // hitbox.moveTo((float)entityRect.x - 3, hitbox.getY());
-                //hitbox.moveRelative(-5f, 0);
-            }
+                hitbox.setBottom(tileContainer.t - 0.1f);
+                //hitbox.vy = tileContainer.vy; // the platform moves the player with it after collision...
+                // hitbox.jumping = false;
 
-            if (Math.abs(tileRect.getMaxX() - entityRect.x) < collisionTol) {
-                System.out.println("tile left, ent right");
-                // hitbox.moveTo((float)entityRect.x + 3, hitbox.getY());
-                //hitbox.moveRelative(4, 0);
-                //hitbox.moveRelative(-5f, 0);
             }
+            
+            if (hitbox.t <= tileContainer.b && hitbox.ot > tileContainer.ob) {
+
+                hitbox.setTop(tileContainer.b + 0.1f);
+                //hitbox.vy = tileContainer.vy; // ... regardless of what side the player collides with
+
+            } */
+            float collisionTol = 5;
+            if (Math.abs(hitbox.b - tileContainer.t) < collisionTol) {
+                hitbox.setBottom(tileContainer.t - 0.1f);
+            }else if (Math.abs(tileContainer.b - hitbox.t) < collisionTol) {
+                hitbox.setTop(tileContainer.b + 0.1f);
+            }else if (Math.abs(hitbox.r - tileContainer.l) < collisionTol) {
+                hitbox.setRight(tileContainer.l - 0.1f);
+            }else if (Math.abs(tileContainer.r - hitbox.l) < collisionTol) {
+                hitbox.setLeft(tileContainer.r + 0.1f);
+            }
+            
+        
 
         }
+
     }
 
 }

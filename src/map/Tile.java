@@ -25,8 +25,8 @@ public abstract class Tile implements DrawableComponent{
     public String toString() {
         return String.format(
             "Tile with pos %s %s", 
-            tileContainer.getX(), 
-            tileContainer.getY()
+            tileContainer.l, 
+            tileContainer.t
         );
     }
 }

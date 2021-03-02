@@ -6,69 +6,85 @@ import gamecomponents.Hitbox;
 public class TestPlayer extends Player {
 
     private GameSketch gSketch;
+    private char key;
+    private boolean isKeyPressed;
 
     public TestPlayer(GameSketch gSketch, Hitbox hitbox) {
         super(hitbox);
         this.gSketch = gSketch;
+        this.key = '?';
+        isKeyPressed = false;
     }
 
     @Override
     public void draw() {
         gSketch.fill(255);
         gSketch.rect(
-            hitbox.getX(), hitbox.getY(), hitbox.getWidth(), hitbox.getHeight()
+            hitbox.l, hitbox.t, hitbox.w, hitbox.h
         );
 
         this.gSketch.textSize(12f);
         this.gSketch.fill(0, 0, 255);
         this.gSketch.text(
-            "x:"+hitbox.getX(),
-            hitbox.getX(), 
-            hitbox.getY() - 40
+            "l:"+hitbox.l,
+            hitbox.l, 
+            hitbox.t - 40
         );
         this.gSketch.text(
-            "xm:"+hitbox.getRectContainer().getMaxX(),
-            hitbox.getX() + 50, 
-            hitbox.getY() - 40
+            "r:"+hitbox.r,
+            hitbox.l + 50, 
+            hitbox.t - 40
         );
         this.gSketch.text(
-            "y:"+hitbox.getY(),
-            hitbox.getX(), 
-            hitbox.getY() - 20
+            "t:"+hitbox.t,
+            hitbox.l, 
+            hitbox.t - 20
+        );
+        this.gSketch.text(
+            "b:"+hitbox.b,
+            hitbox.l + 50, 
+            hitbox.t - 20
         );
     }
 
     @Override
     public void update() {
         draw();
+
+        if (isKeyPressed){
+            if (key == 'd'){
+                hitbox.moveRelative(hitbox.vx, 0);
+            }
+            if (key == 'a'){
+                hitbox.moveRelative(-hitbox.vx, 0);
+            }
+            if (key == 'w'){
+                // System.out.println("w was pressed");
+                hitbox.moveRelative(0, -hitbox.vy);
+            }
+    
+            /* if(key == 'u'){
+                hitbox.moveTo(50, 50);
+            } */
+            if(key == 'i'){
+                hitbox.moveRelative(-1, 0);
+            }
+            if(key == 'o'){
+                hitbox.moveRelative(1, 0);
+            }
+        }
+
     }
 
     @Override
     public void keyPressed(char key) {
-        if (key == 'd'){
-            hitbox.moveRelative(5, 0);
-        }
-        if (key == 'a'){
-            hitbox.moveRelative(-5, 0);
-        }
-        if (key == 'w'){
-            hitbox.moveRelative(0, -50);
-        }
-
-        if(key == 'u'){
-            hitbox.moveTo(50, 50);
-        }
-        if(key == 'i'){
-            hitbox.moveRelative(-1, 0);
-        }
-        if(key == 'o'){
-            hitbox.moveRelative(1, 0);
-        }
+        this.key = key;
+        this.isKeyPressed = true;
     }
 
     @Override
     public void keyReleased() {
-
+        this.isKeyPressed = false;
     }
     
 }

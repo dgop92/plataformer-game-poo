@@ -28,7 +28,10 @@ public class World {
         int rows = gSketch.getScreenSize().getNRows();
         int columns = gSketch.getScreenSize().getNColumns();
 
-        player = new TestPlayer(gSketch, new Hitbox(300, 250, 20, 20));
+        Hitbox ph = new Hitbox(300, 250, 20, 20);
+        ph.vx = 5;
+        ph.vy = 5;
+        player = new TestPlayer(gSketch, ph);
 
         wordHitboxEffects = new ArrayList<>();
         entities = new ArrayList<>();
@@ -71,18 +74,19 @@ public class World {
 
     public void worldloop(){
 
+        for (Entity entity : entities) {
+            entity.update();
+            for (HitBoxEffect hitBoxEffect : wordHitboxEffects) {
+                entity.applyHitboxEffect(hitBoxEffect);
+            }
+        }
+
         for (Tile[] rowTiles : tilemap) {
            for (Tile tile : rowTiles) {
                tile.update();
            } 
         }
-
-        for (Entity entity : entities) {
-            for (HitBoxEffect hitBoxEffect : wordHitboxEffects) {
-                entity.applyHitboxEffect(hitBoxEffect);
-            }
-            entity.update();
-        }
+    
     }
 
     private int[] parseMapItem(String mapItem){
