@@ -13,7 +13,7 @@ public class TileFactory {
     public Tile createTile(int x, int y, int dataId, int tileSize) {
         switch (dataId) {
             case 1:
-                return new GrassTile(gSketch, x, y, tileSize);
+                return new TestTile(gSketch, x, y, tileSize);
             default:
                 return new EmptyTile(gSketch, x, y, tileSize);
         }

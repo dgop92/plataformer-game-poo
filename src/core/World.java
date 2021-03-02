@@ -64,9 +64,6 @@ public class World {
                     tileSize
                 );
                 tilemap[i][j].loadImage(dataInfo[1]);
-                /* if(tilemap[i][j].getHitboxEffects() != null){
-                    System.out.println(tilemap[i][j]);
-                } */
                 addTileHitBoxEffects(tilemap[i][j].getHitboxEffects());
             }
         }

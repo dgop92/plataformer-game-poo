@@ -9,35 +9,22 @@ public class Hitbox {
     public float r;
     public float t;
     public float b;
-
-    public float ol;
-    public float or;
-    public float ot;
-    public float ob;
     
     public float vx;
     public float vy;
 
     public Hitbox(int l, int t, int w, int h) {
-        this.l = this.ol = l; // left and old left
-        this.r = this.or = l + w; // right and old right
-        this.t = this.ot = t; // top and old top
-        this.b = this.ob = t + h; // bottom and old bottom
+        this.l = l; 
+        this.r = l + w;
+        this.t = t; 
+        this.b = t + h;
 
-        this.ol = l; // left and old left
-        this.or = l + w; // right and old right
-        this.ot = t; // top and old top
-        this.ob = t + h; // bottom and old bottom
-
-        this.w = w; // width
-        this.h = h; // height
-        this.vx = this.vy = 0; // velocity x and y
+        this.w = w;
+        this.h = h;
+        this.vx = this.vy = 0;
     }
 
     public void moveRelative(float vx, float vy) {
-
-        updateOldPositions();
-
         this.l += vx; 
         this.t += vy;
         this.r = this.l + this.w;
@@ -46,7 +33,9 @@ public class Hitbox {
 
     public void moveTo(float x, float y){
         this.l = x; 
-        this.t = y; 
+        this.t = y;
+        this.r = this.l + this.w;
+        this.b = this.t + this.h;
     }
 
     public void setBottom(float b) {
@@ -67,13 +56,6 @@ public class Hitbox {
     public void setTop(float t) {
         this.t = t;
         this.b = t + this.h;
-    }
-
-    private void updateOldPositions(){
-        this.ob = this.b; // update the old positions to the current positions
-        this.ol = this.l;
-        this.or = this.r;
-        this.ot = this.t;
     }
     
 }

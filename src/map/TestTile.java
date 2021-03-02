@@ -4,9 +4,9 @@ import core.GameSketch;
 import effects.CollideEffect;
 import effects.HitBoxEffect;
 
-public class GrassTile extends Tile {
+public class TestTile extends Tile {
 
-    public GrassTile(GameSketch gSketch, int x, int y, int tileSize) {
+    public TestTile(GameSketch gSketch, int x, int y, int tileSize) {
         super(gSketch, x, y, tileSize);
     }
 
@@ -23,7 +23,7 @@ public class GrassTile extends Tile {
         this.gSketch.textSize(8f);
         this.gSketch.fill(0);
         this.gSketch.text(
-            "t:"+tileContainer.ol,
+            "t:"+tileContainer.l,
             tileContainer.l, 
             tileContainer.t + 10
         );
@@ -33,7 +33,7 @@ public class GrassTile extends Tile {
             tileContainer.t + 20
         );
         this.gSketch.text(
-            "r:"+tileContainer.or,
+            "r:"+tileContainer.r,
             tileContainer.l, 
             tileContainer.t + 30
         );

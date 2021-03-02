@@ -59,13 +59,9 @@ public class TestPlayer extends Player {
                 hitbox.moveRelative(-hitbox.vx, 0);
             }
             if (key == 'w'){
-                // System.out.println("w was pressed");
                 hitbox.moveRelative(0, -hitbox.vy);
             }
     
-            /* if(key == 'u'){
-                hitbox.moveTo(50, 50);
-            } */
             if(key == 'i'){
                 hitbox.moveRelative(-1, 0);
             }
