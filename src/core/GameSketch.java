@@ -16,7 +16,7 @@ public class GameSketch extends PApplet{
     @Override
     public void setup() {
         currwWord = new World(this);
-        currwWord.loadMap("data/test-map12.json");
+        currwWord.loadMap("data/test-map16.json");
     }
 
     @Override
