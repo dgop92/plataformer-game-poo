@@ -1,9 +1,9 @@
 package plataformer.map.tiles;
 
 import plataformer.map.GameSketch;
-import plataformer.enitties.effects.HitBoxEffect;
+import plataformer.entities.Hitbox;
+import plataformer.entities.effects.EntityEffect;
 import plataformer.general.DrawableComponent;
-import plataformer.enitties.Hitbox;
 import processing.core.PImage;
 
 public abstract class Tile implements DrawableComponent{
@@ -19,7 +19,7 @@ public abstract class Tile implements DrawableComponent{
 
     public abstract void loadImage(int dataValue);
 
-    public abstract HitBoxEffect[] getHitboxEffects();
+    public abstract EntityEffect[] getEntityEffects();
 
     @Override
     public String toString() {

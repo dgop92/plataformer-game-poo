@@ -1,7 +1,7 @@
 package plataformer.map.tiles;
 
+import plataformer.entities.effects.EntityEffect;
 import plataformer.map.GameSketch;
-import plataformer.enitties.effects.HitBoxEffect;
 
 public class EmptyTile extends Tile{
     
@@ -25,7 +25,7 @@ public class EmptyTile extends Tile{
     }
 
     @Override
-    public HitBoxEffect[] getHitboxEffects() {
+    public EntityEffect[] getEntityEffects() {
         return null;
     }
 }

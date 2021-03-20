@@ -1,8 +1,8 @@
 package plataformer.map.tiles;
 
+import plataformer.entities.effects.CollideEffect;
+import plataformer.entities.effects.EntityEffect;
 import plataformer.map.GameSketch;
-import plataformer.enitties.effects.CollideEffect;
-import plataformer.enitties.effects.HitBoxEffect;
 
 public class TestTile extends Tile {
 
@@ -55,8 +55,8 @@ public class TestTile extends Tile {
     }
 
     @Override
-    public HitBoxEffect[] getHitboxEffects() {
-        HitBoxEffect[] he = {new CollideEffect(this.tileContainer)};
+    public EntityEffect[] getEntityEffects() {
+        EntityEffect[] he = {new CollideEffect(this.tileContainer)};
         return he;
     }
 }

@@ -1,4 +1,4 @@
-package plataformer.enitties;
+package plataformer.entities;
 
 public class Hitbox {
     

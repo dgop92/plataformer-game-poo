@@ -1,8 +1,7 @@
-package plataformer.enitties.alive;
+package plataformer.entities.alive;
 
-import plataformer.enitties.alive.Player;
+import plataformer.entities.Hitbox;
 import plataformer.map.GameSketch;
-import plataformer.enitties.Hitbox;
 
 public class TestPlayer extends Player {
 
@@ -10,8 +9,8 @@ public class TestPlayer extends Player {
     private char key;
     private boolean isKeyPressed;
 
-    public TestPlayer(GameSketch gSketch, Hitbox hitbox) {
-        super(hitbox);
+    public TestPlayer(GameSketch gSketch, Hitbox hitbox, Stats stats) {
+        super(hitbox, stats);
         this.gSketch = gSketch;
         this.key = '?';
         isKeyPressed = false;

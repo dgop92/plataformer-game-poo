@@ -1,4 +1,4 @@
-package plataformer.enitties.alive;
+package plataformer.entities.alive;
 
 public interface ControlablePlayer {
     

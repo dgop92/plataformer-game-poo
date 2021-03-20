@@ -1,8 +1,9 @@
-package plataformer.enitties.effects;
+package plataformer.entities.effects;
 
-import plataformer.enitties.Hitbox;
+import plataformer.entities.Entity;
+import plataformer.entities.Hitbox;
 
-public class CollideEffect implements HitBoxEffect {
+public class CollideEffect implements EntityEffect {
 
     private Hitbox tileContainer;
 
@@ -11,7 +12,9 @@ public class CollideEffect implements HitBoxEffect {
     }
 
     @Override
-    public void apply(Hitbox hitbox) {
+    public void apply(Entity entity) {
+        
+        Hitbox hitbox = entity.getHitbox();
 
         if (hitbox.b < tileContainer.t || hitbox.t > tileContainer.b || hitbox.l > tileContainer.r
                 || hitbox.r < tileContainer.l) {
