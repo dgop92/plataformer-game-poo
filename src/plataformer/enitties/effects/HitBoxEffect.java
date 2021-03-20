@@ -1,6 +1,6 @@
-package effects;
+package plataformer.enitties.effects;
 
-import gamecomponents.Hitbox;
+import plataformer.enitties.Hitbox;
 
 public interface HitBoxEffect {
     

@@ -1,4 +1,4 @@
-package gamecomponents;
+package plataformer.general;
 
 public interface DrawableComponent {
     

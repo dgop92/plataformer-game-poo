@@ -1,7 +1,8 @@
-package character;
+package plataformer.enitties.alive;
 
-import core.GameSketch;
-import gamecomponents.Hitbox;
+import plataformer.enitties.alive.Player;
+import plataformer.map.GameSketch;
+import plataformer.enitties.Hitbox;
 
 public class TestPlayer extends Player {
 

@@ -1,6 +1,7 @@
-package core;
+package plataformer.map;
 
-import character.ControlablePlayer;
+import plataformer.map.worlds.World;
+import plataformer.enitties.alive.ControlablePlayer;
 import processing.core.PApplet;
 
 public class GameSketch extends PApplet{

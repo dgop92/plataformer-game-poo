@@ -1,6 +1,7 @@
-package character;
+package plataformer.enitties.alive;
 
-import gamecomponents.Hitbox;
+import plataformer.enitties.Entity;
+import plataformer.enitties.Hitbox;
 
 public abstract class Player extends Entity implements ControlablePlayer{
 

@@ -1,9 +1,9 @@
-package map;
+package plataformer.map.tiles;
 
-import core.GameSketch;
-import effects.HitBoxEffect;
-import gamecomponents.DrawableComponent;
-import gamecomponents.Hitbox;
+import plataformer.map.GameSketch;
+import plataformer.enitties.effects.HitBoxEffect;
+import plataformer.general.DrawableComponent;
+import plataformer.enitties.Hitbox;
 import processing.core.PImage;
 
 public abstract class Tile implements DrawableComponent{

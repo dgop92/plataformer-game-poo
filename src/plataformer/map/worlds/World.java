@@ -1,16 +1,17 @@
-package core;
+package plataformer.map.worlds;
 
 import java.util.ArrayList;
 
-import character.ControlablePlayer;
-import character.Entity;
-import character.Player;
-import character.TestPlayer;
-import effects.GravityEffect;
-import effects.HitBoxEffect;
-import gamecomponents.Hitbox;
-import map.Tile;
-import map.TileFactory;
+import plataformer.enitties.alive.ControlablePlayer;
+import plataformer.enitties.Entity;
+import plataformer.enitties.alive.Player;
+import plataformer.enitties.alive.TestPlayer;
+import plataformer.enitties.effects.GravityEffect;
+import plataformer.enitties.effects.HitBoxEffect;
+import plataformer.enitties.Hitbox;
+import plataformer.map.tiles.Tile;
+import plataformer.map.tiles.TileFactory;
+import plataformer.map.GameSketch;
 import processing.data.JSONArray;
 
 public class World {

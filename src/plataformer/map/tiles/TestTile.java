@@ -1,8 +1,8 @@
-package map;
+package plataformer.map.tiles;
 
-import core.GameSketch;
-import effects.CollideEffect;
-import effects.HitBoxEffect;
+import plataformer.map.GameSketch;
+import plataformer.enitties.effects.CollideEffect;
+import plataformer.enitties.effects.HitBoxEffect;
 
 public class TestTile extends Tile {
 

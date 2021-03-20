@@ -1,4 +1,4 @@
-package core;
+package plataformer.map;
 
 public class ScreenSize {
     

@@ -1,7 +1,7 @@
-package main;
+package plataformer.map.tiles.main;
 
-import core.GameSketch;
-import core.ScreenSize;
+import plataformer.map.GameSketch;
+import plataformer.map.ScreenSize;
 
 public class App {
     public static void main(String[] args) throws Exception {

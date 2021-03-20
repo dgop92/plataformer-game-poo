@@ -1,4 +1,4 @@
-package character;
+package plataformer.enitties.alive;
 
 public interface ControlablePlayer {
     

@@ -1,8 +1,7 @@
-package character;
+package plataformer.enitties;
 
-import effects.HitBoxEffect;
-import gamecomponents.DrawableComponent;
-import gamecomponents.Hitbox;
+import plataformer.enitties.effects.HitBoxEffect;
+import plataformer.general.DrawableComponent;
 
 public abstract class Entity implements DrawableComponent{
     

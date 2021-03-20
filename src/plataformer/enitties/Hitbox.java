@@ -1,4 +1,4 @@
-package gamecomponents;
+package plataformer.enitties;
 
 public class Hitbox {
     

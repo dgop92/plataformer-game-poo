@@ -1,6 +1,6 @@
-package map;
+package plataformer.map.tiles;
 
-import core.GameSketch;
+import plataformer.map.GameSketch;
 
 public class TileFactory {
 
