@@ -3,6 +3,9 @@ package plataformer.map.worlds;
 import java.awt.Point;
 import java.util.HashMap;
 
+import plataformer.entities.alive.Mounster;
+import plataformer.entities.alive.MounsterFactory;
+import plataformer.entities.alive.MounsterType;
 import plataformer.entities.alive.Player;
 import plataformer.entities.alive.PlayerFactory;
 import plataformer.entities.alive.PlayerType;
@@ -72,7 +75,19 @@ public class TestWorld extends World{
 
     @Override
     protected void createMounsters() {
-        
+        MounsterFactory mounsterFactory = new MounsterFactory(gSketch);
+        Mounster testMounster = mounsterFactory.createMounster(
+            MounsterType.TESTMOUNSTER, 
+            new Point(450, 225)
+        );
+        entityManager.registerEntity(testMounster);
+    }
+
+    @Override
+    protected void updateWorldHook() {
+        gSketch.textSize(14f);
+        this.gSketch.fill(255);
+        this.gSketch.text("FrameRate:  "+gSketch.frameRate, 15, 15);
     }
 
     @Override

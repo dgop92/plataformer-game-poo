@@ -33,6 +33,8 @@ public abstract class World {
     }
 
     public void updateWorld(){
+        //this should be a abstract method
+        this.gSketch.background(0);
 
         entityManager.updateEntities();
 

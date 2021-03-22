@@ -23,8 +23,6 @@ public class GameSketch extends PApplet{
 
     @Override
     public void draw() {
-        background(0);
-        text(frameRate, 10, 10);
         currwWord.updateWorld();
     }
 
