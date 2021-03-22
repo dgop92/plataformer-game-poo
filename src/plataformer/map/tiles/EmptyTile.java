@@ -1,6 +1,7 @@
 package plataformer.map.tiles;
 
 import plataformer.entities.effects.EntityEffect;
+import plataformer.entities.effects.NullEffect;
 import plataformer.map.GameSketch;
 
 public class EmptyTile extends Tile{
@@ -26,6 +27,7 @@ public class EmptyTile extends Tile{
 
     @Override
     public EntityEffect[] getEntityEffects() {
-        return null;
+        EntityEffect[] ef = {new NullEffect()};
+        return ef;
     }
 }

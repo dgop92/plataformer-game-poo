@@ -1,11 +1,14 @@
 package plataformer.map;
 
+import plataformer.entities.alive.ControlablePlayer;
+import plataformer.map.worlds.TestWorld;
+import plataformer.map.worlds.World;
 import processing.core.PApplet;
 
 public class GameSketch extends PApplet{
 
     private ScreenSize screenSize;
-    // private World currwWord;
+    private World currwWord;
 
     @Override
     public void settings() {
@@ -14,15 +17,15 @@ public class GameSketch extends PApplet{
 
     @Override
     public void setup() {
-        /* currwWord = new World(this);
-        currwWord.loadMap("data/test-map16.json"); */
+        currwWord = new TestWorld(this);
+        currwWord.initWorld();
     }
 
     @Override
     public void draw() {
-        /* background(0);
+        background(0);
         text(frameRate, 10, 10);
-        currwWord.worldloop(); */
+        currwWord.updateWorld();
     }
 
     public void run() {
@@ -32,16 +35,16 @@ public class GameSketch extends PApplet{
 
     @Override
     public void keyPressed() {
-        /* for (ControlablePlayer cp : currwWord.getControlablePlayers()) {
+        for (ControlablePlayer cp : currwWord.getControlablePlayers()) {
             cp.keyPressed(key);
-        } */
+        }
     }
 
     @Override
     public void keyReleased() {
-        /* for (ControlablePlayer cp : currwWord.getControlablePlayers()) {
+        for (ControlablePlayer cp : currwWord.getControlablePlayers()) {
             cp.keyReleased();
-        } */
+        }
     }
 
     public ScreenSize getScreenSize() {

@@ -4,5 +4,5 @@ import plataformer.entities.Entity;
 
 public interface EntityEffect {
     
-    public void apply(Entity hitbox);
+    public void apply(Entity entity);
 }

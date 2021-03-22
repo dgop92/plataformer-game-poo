@@ -56,7 +56,7 @@ public class TestTile extends Tile {
 
     @Override
     public EntityEffect[] getEntityEffects() {
-        EntityEffect[] he = {new CollideEffect(this.tileContainer)};
-        return he;
+        EntityEffect[] ef = {new CollideEffect(this.tileContainer)};
+        return ef;
     }
 }

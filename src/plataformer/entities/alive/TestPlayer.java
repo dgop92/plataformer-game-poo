@@ -12,6 +12,10 @@ public class TestPlayer extends Player {
     public TestPlayer(GameSketch gSketch, Hitbox hitbox, Stats stats) {
         super(hitbox, stats);
         this.gSketch = gSketch;
+
+        hitbox.vx = stats.getVx();
+        hitbox.vy = stats.getVy();
+
         this.key = '?';
         isKeyPressed = false;
     }

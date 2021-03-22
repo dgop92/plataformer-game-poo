@@ -5,15 +5,21 @@ import plataformer.map.GameSketch;
 import java.awt.Point;
 
 public class PlayerFactory {
+
+    private GameSketch gSketch;
+
+    public PlayerFactory(GameSketch gSketch) {
+        this.gSketch = gSketch;
+    }
     
-    public Player createPlayer(GameSketch gSketch, PlayerType playerType, 
-        Point point) {
+    public Player createPlayer(PlayerType playerType, Point position) {
+        
         Player player;
         switch (playerType) {
             case TESTPLAYER:
             
-            Hitbox hitbox = new Hitbox(point.x, point.y, 50, 50);
-            Stats stats = new PlayerStats(100, 10, 10);
+            Hitbox hitbox = new Hitbox(position.x, position.y, 20, 20);
+            Stats stats = new PlayerStats(100, 5, 5);
             player = new TestPlayer(gSketch, hitbox, stats);
 
             break;
@@ -26,4 +32,5 @@ public class PlayerFactory {
         return player;
         
     }
+
 }

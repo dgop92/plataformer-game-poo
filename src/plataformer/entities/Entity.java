@@ -11,7 +11,7 @@ public abstract class Entity implements DrawableComponent{
         this.hitbox = hitbox;
     }
 
-    public void applyHitboxEffect(EntityEffect entityEffect) {
+    public void applyEntityEffect(EntityEffect entityEffect) {
         entityEffect.apply(this);
     }
 
