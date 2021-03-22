@@ -3,7 +3,7 @@ package plataformer.entities.alive;
 import plataformer.entities.Entity;
 import plataformer.entities.Hitbox;
 
-public class AliveEntity extends Entity{
+public abstract class AliveEntity extends Entity{
 
     private Stats stats;
 
