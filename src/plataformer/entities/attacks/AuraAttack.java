@@ -2,7 +2,7 @@ package plataformer.entities.attacks;
 
 public abstract class AuraAttack implements Attack{
     
-    private Aura aura;
+    protected Aura aura;
 
     public AuraAttack(Aura aura) {
         this.aura = aura;

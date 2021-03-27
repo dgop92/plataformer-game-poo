@@ -1,6 +1,11 @@
 package plataformer.entities.alive;
 
 import plataformer.entities.Hitbox;
+import plataformer.entities.attacks.Arrow;
+import plataformer.entities.attacks.ArrowAttack;
+import plataformer.entities.attacks.ProyectileAttack;
+import plataformer.entities.attacks.PunchAura;
+import plataformer.entities.attacks.PunchAuraAttack;
 import plataformer.map.GameSketch;
 
 public class TestPlayer extends Player {
@@ -8,6 +13,9 @@ public class TestPlayer extends Player {
     private GameSketch gSketch;
     private char key;
     private boolean isKeyPressed;
+
+    private int countPunch;
+    private int countArrow;
 
     public TestPlayer(GameSketch gSketch, Hitbox hitbox, Stats stats) {
         super(hitbox, stats);
@@ -18,6 +26,9 @@ public class TestPlayer extends Player {
 
         this.key = '?';
         isKeyPressed = false;
+
+        countPunch = 0;
+        countArrow = 0;
     }
 
     @Override
@@ -49,6 +60,11 @@ public class TestPlayer extends Player {
             hitbox.l + 50, 
             hitbox.t - 20
         );
+        this.gSketch.text(
+            "life:"+stats.getLife(),
+            hitbox.l + 65, 
+            hitbox.t - 60
+        );
     }
 
     @Override
@@ -65,13 +81,39 @@ public class TestPlayer extends Player {
             if (key == 'w'){
                 hitbox.moveRelative(0, -hitbox.vy);
             }
-    
-            if(key == 'i'){
-                hitbox.moveRelative(-1, 0);
+
+            if (key == 'l' && countPunch == 0){
+                Hitbox punchHitbox = new Hitbox(
+                    (int)hitbox.l, (int)hitbox.t, 80, 50
+                );
+                PunchAura punchAura = new PunchAura(gSketch, punchHitbox);
+                attackDisptacher.enqueAttack(new PunchAuraAttack(punchAura));
+                attackDisptacher.enqueAttack(new PunchAuraAttack(punchAura));
+                attackDisptacher.enqueAttack(new PunchAuraAttack(punchAura));
+                countPunch = 180;
             }
-            if(key == 'o'){
-                hitbox.moveRelative(1, 0);
+            
+            if(key == 'k' && countArrow == 0){
+                Hitbox arrowHitbox = new Hitbox(
+                    (int)hitbox.l, (int)hitbox.t, 30, 8
+                );
+                //in archer player, defined some attributte to know the direction;
+                arrowHitbox.vx = 1.5f;
+                //contrarestar la gravedad
+                arrowHitbox.vy = -1.5f;
+                Arrow arrow = new Arrow(gSketch, arrowHitbox);
+                ProyectileAttack proyectileAttack = new ArrowAttack(arrow);
+                attackDisptacher.sendCurrAttack(proyectileAttack);
+                countArrow = 180;
             }
+        }
+
+        if(countPunch != 0){
+            countPunch -= 1;
+        }
+
+        if(countArrow != 0){
+            countArrow -= 1;
         }
 
     }

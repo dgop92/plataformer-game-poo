@@ -31,6 +31,13 @@ public class Hitbox {
         this.b = this.t + this.h;
     }
 
+    public void moveRelative() {
+        this.l += vx; 
+        this.t += vy;
+        this.r = this.l + this.w;
+        this.b = this.t + this.h;
+    }
+
     public void moveTo(float x, float y){
         this.l = x; 
         this.t = y;

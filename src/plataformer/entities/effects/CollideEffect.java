@@ -35,5 +35,4 @@ public class CollideEffect implements EntityEffect {
         }
 
     }
-
 }

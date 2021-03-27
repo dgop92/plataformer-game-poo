@@ -80,7 +80,17 @@ public class TestWorld extends World{
             MounsterType.TESTMOUNSTER, 
             new Point(450, 225)
         );
+        Mounster testMounster2 = mounsterFactory.createMounster(
+            MounsterType.TESTMOUNSTER, 
+            new Point(550, 225)
+        );
+        Mounster testMounster3 = mounsterFactory.createMounster(
+            MounsterType.TESTMOUNSTER, 
+            new Point(195, 225)
+        );
         entityManager.registerEntity(testMounster);
+        entityManager.registerEntity(testMounster2);
+        entityManager.registerEntity(testMounster3);
     }
 
     @Override
