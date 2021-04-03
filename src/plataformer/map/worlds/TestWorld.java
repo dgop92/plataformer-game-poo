@@ -65,7 +65,7 @@ public class TestWorld extends World{
         
         PlayerFactory playerFactory = new PlayerFactory(gSketch);
         Player testPlayer = playerFactory.createPlayer(
-            PlayerType.TESTPLAYER, 
+            PlayerType.ARCHERPLAYER, 
             new Point(300, 250)
         );
         
@@ -77,12 +77,12 @@ public class TestWorld extends World{
     protected void createMounsters() {
         MounsterFactory mounsterFactory = new MounsterFactory(gSketch);
         Mounster testMounster = mounsterFactory.createMounster(
-            MounsterType.TESTMOUNSTER, 
-            new Point(450, 225)
+            MounsterType.CYCLOP, 
+            new Point(450, 400)
         );
         Mounster testMounster2 = mounsterFactory.createMounster(
-            MounsterType.TESTMOUNSTER, 
-            new Point(550, 225)
+            MounsterType.CYCLOP, 
+            new Point(550, 400)
         );
         Mounster testMounster3 = mounsterFactory.createMounster(
             MounsterType.TESTMOUNSTER, 

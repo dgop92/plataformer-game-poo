@@ -2,5 +2,6 @@ package plataformer.entities.alive;
 
 public enum MounsterType {
     
-    TESTMOUNSTER
+    TESTMOUNSTER,
+    CYCLOP
 }
