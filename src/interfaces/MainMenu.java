@@ -1,26 +1,12 @@
-package Menu_Principal;
+package interfaces;
 
-import java.awt.Image;
-import javax.swing.ImageIcon;
-
-public class Menu_primario_Interface extends javax.swing.JFrame {
+public class MainMenu extends javax.swing.JFrame {
 
     boolean sw = false;
 
-    public Menu_primario_Interface() {
+    public MainMenu() {
         initComponents();
 
-        //Fondo.setSize(500, 500);
-         //String path = "/Menu_Principal/mando2.png";
-
-        //URL url = this.getClass().getResource(path);
-//System.out.println(this.getClass().getResource(path));
-        //Image img = new ImageIcon(this.getClass().getResource(path)).getImage();
-       
-        //ImageIcon img2 = new ImageIcon(img.getScaledInstance(500, 500, Image.SCALE_SMOOTH));
-
-        //Fondo.setIcon(img2);
-        //this.repaint();
         Music_off.setVisible(false);
 
     }
@@ -45,18 +31,18 @@ public class Menu_primario_Interface extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         Music_off.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Music_off.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu_Principal/equiz_roja.png"))); // NOI18N
+        Music_off.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/equiz_roja.png"))); // NOI18N
         getContentPane().add(Music_off);
         Music_off.setBounds(740, 0, 90, 70);
 
         Nota.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Nota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu_Principal/nota.png"))); // NOI18N
+        Nota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/nota.png"))); // NOI18N
         getContentPane().add(Nota);
         Nota.setBounds(760, 10, 50, 50);
 
         empezar.setBackground(new java.awt.Color(204, 255, 204));
         empezar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        empezar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu_Principal/cartel_empezar2.png"))); // NOI18N
+        empezar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/cartel_empezar2.png"))); // NOI18N
         empezar.setBorderPainted(false);
         empezar.setContentAreaFilled(false);
         empezar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -88,7 +74,7 @@ public class Menu_primario_Interface extends javax.swing.JFrame {
             }
         });
         getContentPane().add(musica);
-        musica.setBounds(710, 50, 150, 31);
+        musica.setBounds(710, 50, 150, 38);
 
         controles.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         controles.setForeground(new java.awt.Color(255, 255, 153));
@@ -104,7 +90,7 @@ public class Menu_primario_Interface extends javax.swing.JFrame {
         controles.setBounds(680, 560, 160, 40);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu_Principal/mando2.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/mando2.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(710, 480, 110, 90);
 
@@ -114,16 +100,16 @@ public class Menu_primario_Interface extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         getContentPane().add(jButton1);
-        jButton1.setBounds(10, 580, 130, 31);
+        jButton1.setBounds(10, 580, 130, 38);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu_Principal/creditos2.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/creditos2.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(30, 500, 90, 80);
 
         Fondo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         Fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu_Principal/pixil-gif-drawing (2).gif"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/pixil-gif-drawing (2).gif"))); // NOI18N
         Fondo.setToolTipText("");
         Fondo.setRequestFocusEnabled(false);
         getContentPane().add(Fondo);
@@ -142,7 +128,7 @@ public class Menu_primario_Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_musicaActionPerformed
 
     private void controlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_controlesActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_controlesActionPerformed
 
     private void empezarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezarActionPerformed
@@ -150,18 +136,18 @@ public class Menu_primario_Interface extends javax.swing.JFrame {
     }//GEN-LAST:event_empezarActionPerformed
 
     private void empezarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empezarMousePressed
-       empezar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu_Principal/cartel_iluminado.png")));
+       empezar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/cartel_iluminado.png")));
     }//GEN-LAST:event_empezarMousePressed
 
     private void empezarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empezarMouseReleased
-         empezar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Menu_Principal/cartel_empezar2.png")));
+         empezar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/cartel_empezar2.png")));
     }//GEN-LAST:event_empezarMouseReleased
 
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu_primario_Interface().setVisible(true);
+                new MainMenu().setVisible(true);
             }
         });
     }
