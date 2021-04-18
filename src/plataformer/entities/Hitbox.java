@@ -32,13 +32,13 @@ public class Hitbox {
     }
 
     public void jumping(float vx, float vy) {
-      
-            this.l += vx;
-            this.t += vy;
-            vy--;
-            this.r = this.l + this.w;
-            this.b = this.t + this.h;
-        
+
+        this.l += vx;
+        this.t += vy;
+        vy--;
+        this.r = this.l + this.w;
+        this.b = this.t + this.h;
+
 
     }
 

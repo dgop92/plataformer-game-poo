@@ -7,6 +7,7 @@ package plataformer.entities.alive;
  */
 import plataformer.entities.Hitbox;
 import plataformer.map.GameSketch;
+import plataformer.map.worlds.TestWorld;
 import processing.core.PImage;
 
 /**
@@ -14,16 +15,14 @@ import processing.core.PImage;
  * @author andre
  */
 public class Cyclop extends Mounster {
-
     private GameSketch gSketch;
-    private boolean isCollidedr;
     private boolean isCollidedl;
     float oldl;
     int i = -1;
-    float oldr;
     private PImage Img;
     private double cont = 1;
     private int count = 1;
+    
 
     public Cyclop(GameSketch gSketch, Hitbox hitbox, Stats stats) {
         super(hitbox, stats);
@@ -31,22 +30,16 @@ public class Cyclop extends Mounster {
 
         hitbox.vx = stats.getVx();
         hitbox.vy = stats.getVy();
-        isCollidedr = false;
         isCollidedl = false;
         oldl = hitbox.l;
-        oldr = hitbox.r;
 
     }
 
     @Override
     public void draw() {
-        gSketch.fill(255, 0, 0);
-        
-        gSketch.rect(
-                hitbox.l, hitbox.t, hitbox.w, hitbox.h
-        );
+
         gSketch.image(Img,
-                hitbox.l-30, hitbox.t-40, hitbox.w+60, hitbox.h+40
+                hitbox.l - 30, hitbox.t - 40, hitbox.w + 60, hitbox.h + 40
         );
         this.gSketch.textSize(12f);
         this.gSketch.fill(0, 0, 255);
@@ -79,14 +72,12 @@ public class Cyclop extends Mounster {
 
     @Override
     public void update() {
-
+        execute(TestWorld.a);
         hitbox.moveRelative(i * hitbox.vx, 0);
         isCollidedl = oldl == hitbox.l;
         oldl = hitbox.l;
-        System.out.println(isCollidedl);
         if (isCollidedl) {
             i = i * -1;
-            System.out.println("derecha");
         }
         if (i == 1) {
             Image("data\\mounster-sprites\\ciclopecaminarderecha.png", 12);
@@ -104,6 +95,16 @@ public class Cyclop extends Mounster {
         cont += 0.1;
         if (cont > max - 0.09) {
             cont = 1;
+        }
+    }
+    public void execute(AliveEntity aliveEntity) {
+
+        Hitbox hitbox = aliveEntity.getHitbox();
+
+        if (hitbox.b < this.hitbox.t || hitbox.t > this.hitbox.b || hitbox.l > this.hitbox.r
+                || hitbox.r < this.hitbox.l) {
+        } else {
+           this.gSketch.stop();
         }
     }
 }

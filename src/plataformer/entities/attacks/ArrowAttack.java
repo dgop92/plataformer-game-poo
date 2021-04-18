@@ -26,6 +26,7 @@ public class ArrowAttack extends ProyectileAttack{
         }
     }
 
+    @Override
     public Proyectile getProyectile(){
         return proyectile;
     }

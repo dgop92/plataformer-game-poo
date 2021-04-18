@@ -28,7 +28,6 @@ public class ArcherPlayer extends Player {
     private PImage Img;
     private double cont = 1;
     private int count = 1;
-    double xd = 0;
     private boolean collided;
     private boolean isCollided;
     float oldl;
@@ -56,8 +55,8 @@ public class ArcherPlayer extends Player {
     public void draw() {
         gSketch.fill(255);
 
-        gSketch.rect(
-                hitbox.l, hitbox.t, hitbox.w, hitbox.h);
+//        gSketch.rect(
+//                hitbox.l, hitbox.t, hitbox.w, hitbox.h);
         gSketch.image(Img,
                 hitbox.l - 17, hitbox.t - 10, hitbox.w + 35, hitbox.h + 10);
         this.gSketch.textSize(12f);
@@ -92,15 +91,23 @@ public class ArcherPlayer extends Player {
 
     @Override
     public void update() {
-
         isCollided = oldl == hitbox.t;
         oldl = hitbox.t;
         if (isCollided == false) {
-            Img = this.gSketch.loadImage("data\\players-sprites\\arquerojumping7.png");
+            if (direccion == 1) {
+                Img = this.gSketch.loadImage("data\\players-sprites\\arquerojumping6.png");
+            } else {
+                Img = this.gSketch.loadImage("data\\players-sprites\\arquerojumpingleft6.png");
+            }
         } else {
-            Img = this.gSketch.loadImage("data\\players-sprites\\arquero.png");
+            if (direccion == 1) {
+                Img = this.gSketch.loadImage("data\\players-sprites\\arquero.png");
+            } else {
+                Img = this.gSketch.loadImage("data\\players-sprites\\arqueroleft.png");
+            }
+
         }
-        if (key == 'k') {
+        if (key == 'k'||key=='l') {
             if (direccion == 1) {
                 Image("data\\players-sprites\\disparararquero.png", 9);
             }
@@ -108,42 +115,60 @@ public class ArcherPlayer extends Player {
                 Image("data\\players-sprites\\disparararqueroleft.png", 9);
             }
         }
-        //   System.out.println(collided);
 
         if (isKeyPressed) {
             if (key == 'd') {
                 hitbox.moveRelative(hitbox.vx, 0);
-                Image("data\\players-sprites\\arquerorunning.png");
+                Image("data\\players-sprites\\arquerorunning.png", 8);
                 direccion = 1;
             }
             if (key == 'a') {
                 hitbox.moveRelative(-hitbox.vx, 0);
-                Image("data\\players-sprites\\arquerorunningleft.png");
+                Image("data\\players-sprites\\arquerorunningleft.png", 8);
                 direccion = -1;
             }
             if (key == 'e') {
+                direccion = 1;
                 if (collided) {
                     hitbox.moveRelative(hitbox.vx, -hitbox.vy);
                     Image("data\\players-sprites\\arquerojumping.png", 7);
                 }
             }
             if (key == 'q') {
+                direccion = -1;
                 if (collided) {
                     hitbox.moveRelative(-hitbox.vx, -hitbox.vy);
+                    Image("data\\players-sprites\\arquerojumpingleft.png", 7);
                 }
             }
             if (key == 'w') {
 
-//                Image("data\\players-sprites\\arquerojumping.png", 7);
                 if (collided) {
-                    hitbox.jumping(0, -5);
+                    if (direccion == 1) {
+                        Image("data\\players-sprites\\arquerojumping.png", 7);
+                    } else {
+                        Image("data\\players-sprites\\arquerojumpingleft.png", 7);
+                    }
+
+                    hitbox.moveRelative(0, -5);
                 }
             }
             if (key == 'l' && countPunch == 0) {
-                Hitbox punchHitbox = new Hitbox(
-                        (int) hitbox.l, (int) hitbox.t, 80, 50
+                Hitbox punchHitbox;
+                if (direccion==1) {
+                      punchHitbox = new Hitbox(
+                        (int) hitbox.r, (int) hitbox.t, 80, 50
                 );
+                }else{
+                      punchHitbox = new Hitbox(
+                        (int) hitbox.l, (int) hitbox.t, -80, 50
+                );
+                      
+                }
+               
+                            
                 PunchAura punchAura = new PunchAura(gSketch, punchHitbox);
+                punchAura.setDireccion(direccion);
                 attackDisptacher.enqueAttack(new PunchAuraAttack(punchAura));
                 attackDisptacher.enqueAttack(new PunchAuraAttack(punchAura));
                 attackDisptacher.enqueAttack(new PunchAuraAttack(punchAura));
@@ -160,16 +185,10 @@ public class ArcherPlayer extends Player {
                 arrowHitbox.vy = -1.5f;
                 Arrow arrow = new Arrow(gSketch, arrowHitbox);
                 ProyectileAttack proyectileAttack = new ArrowAttack(arrow);
+                arrow.setDireccion(direccion);
                 attackDisptacher.sendCurrAttack(proyectileAttack);
                 countArrow = 180;
             }
-        } else {
-
-            if (key == 'a') {
-                Img = this.gSketch.loadImage("data\\players-sprites\\arqueroleft.png");
-                direccion = -1;
-            }
-
         }
         draw();
         if (countPunch
@@ -196,18 +215,6 @@ public class ArcherPlayer extends Player {
 
     }
 
-    public void Image(String filePath) {
-        if (cont > 8.9) {
-            cont = 1;
-        }
-        count = (int) cont;
-        int index = filePath.indexOf(".");
-        String imagePath = filePath.substring(0, index) + count + filePath.substring(index);
-        Img = this.gSketch.loadImage(imagePath);
-        cont += 0.1;
-
-    }
-
     public void Image(String filePath, int max) {
         if (cont > max - 0.09) {
             cont = 1;
@@ -219,4 +226,5 @@ public class ArcherPlayer extends Player {
         cont += 0.1;
 
     }
+    
 }

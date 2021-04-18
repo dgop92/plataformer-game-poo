@@ -3,10 +3,10 @@ package plataformer.entities.effects;
 import plataformer.entities.Entity;
 import plataformer.entities.Hitbox;
 
-public class CollideEffect implements EntityEffect {
+public class CollideEffect implements EntityEffect{
 
     private Hitbox tileContainer;
-
+    
     public CollideEffect(Hitbox tileContainer) {
         this.tileContainer = tileContainer;
     }

@@ -16,7 +16,9 @@ import plataformer.map.tiles.Tile;
 import plataformer.map.tiles.TileFactory;
 import processing.data.JSONArray;
 
-public class TestWorld extends World{
+public class TestWorld extends World {
+
+    public static Player a;
 
     public TestWorld(GameSketch gSketch) {
         super(gSketch);
@@ -25,16 +27,16 @@ public class TestWorld extends World{
     @Override
     protected void loadMap() {
         TileFactory tileFactory = new TileFactory(gSketch);
-        
+
         JSONArray matrixMap = gSketch.loadJSONArray(
-            "data/worldmaps/test-map16.json"
+                "data/worldmaps/test-map16.json"
         );
         JSONArray rowMap;
-        
+
         int rows = gSketch.getScreenSize().getNRows();
         int columns = gSketch.getScreenSize().getNColumns();
         int tileSize = gSketch.getScreenSize().getTileSize();
-        
+
         tilemap = new Tile[rows][columns];
 
         for (int i = 0; i < rows; i++) {
@@ -42,14 +44,14 @@ public class TestWorld extends World{
             for (int j = 0; j < columns; j++) {
 
                 HashMap<String, Integer> mapItemData = getMapitemData(
-                    rowMap.getString(j)
+                        rowMap.getString(j)
                 );
 
                 Tile tile = tileFactory.createTile(
-                    j * tileSize, 
-                    i * tileSize, 
-                    mapItemData.get("dataId"), 
-                    tileSize
+                        j * tileSize,
+                        i * tileSize,
+                        mapItemData.get("dataId"),
+                        tileSize
                 );
                 tile.loadImage(mapItemData.get("dataValue"));
 
@@ -62,13 +64,13 @@ public class TestWorld extends World{
 
     @Override
     protected void createPlayers() {
-        
+
         PlayerFactory playerFactory = new PlayerFactory(gSketch);
         Player testPlayer = playerFactory.createPlayer(
-            PlayerType.ARCHERPLAYER, 
-            new Point(300, 250)
+                PlayerType.ARCHERPLAYER,
+                new Point(300, 250)
         );
-        
+        a = testPlayer;
         entityManager.registerEntity(testPlayer);
 
     }
@@ -77,16 +79,16 @@ public class TestWorld extends World{
     protected void createMounsters() {
         MounsterFactory mounsterFactory = new MounsterFactory(gSketch);
         Mounster testMounster = mounsterFactory.createMounster(
-            MounsterType.CYCLOP, 
-            new Point(450, 400)
+                MounsterType.CYCLOP,
+                new Point(450, 400)
         );
         Mounster testMounster2 = mounsterFactory.createMounster(
-            MounsterType.CYCLOP, 
-            new Point(550, 400)
+                MounsterType.CYCLOP,
+                new Point(550, 400)
         );
         Mounster testMounster3 = mounsterFactory.createMounster(
-            MounsterType.TESTMOUNSTER, 
-            new Point(195, 225)
+                MounsterType.TESTMOUNSTER,
+                new Point(195, 225)
         );
         entityManager.registerEntity(testMounster);
         entityManager.registerEntity(testMounster2);
@@ -105,5 +107,5 @@ public class TestWorld extends World{
         EntityEffect[] ef = {new GravityEffect()};
         return ef;
     }
- 
+
 }
