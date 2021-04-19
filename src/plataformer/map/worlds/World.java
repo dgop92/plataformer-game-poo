@@ -9,12 +9,15 @@ import plataformer.entities.effects.EntityEffect;
 import plataformer.entities.effects.NullEffect;
 import plataformer.map.GameSketch;
 import plataformer.map.tiles.Tile;
+import processing.core.PImage;
 
 public abstract class World {
         
     protected EntityManager entityManager;
     protected GameSketch gSketch;
     protected Tile[][] tilemap;
+    
+    protected PImage worldBgImage;
 
     public World(GameSketch gSketch) {
 
@@ -33,8 +36,8 @@ public abstract class World {
     }
 
     public void updateWorld(){
-        //this should be a abstract method
-        this.gSketch.background(0);
+       
+        this.gSketch.background(worldBgImage);
 
         entityManager.updateEntities();
 
@@ -60,6 +63,10 @@ public abstract class World {
     protected abstract void createPlayers();
 
     protected abstract void createMounsters();
+
+    public void setWorldBgImage(PImage worldBgImage) {
+        this.worldBgImage = worldBgImage;
+    }
 
     protected EntityEffect[] getWorldEntityEffects(){
         EntityEffect[] ef = {new NullEffect()};
