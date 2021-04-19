@@ -4,7 +4,7 @@ import plataformer.entities.effects.EntityEffect;
 import plataformer.general.DrawableComponent;
 
 public abstract class Entity implements DrawableComponent{
-    
+
     protected Hitbox hitbox;
 
     public Entity(Hitbox hitbox) {
@@ -22,5 +22,5 @@ public abstract class Entity implements DrawableComponent{
     public void setHitbox(Hitbox hitbox) {
         this.hitbox = hitbox;
     }
-    
-}
+
+    }

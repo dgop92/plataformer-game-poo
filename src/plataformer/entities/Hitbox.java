@@ -1,7 +1,7 @@
 package plataformer.entities;
 
 public class Hitbox {
-    
+
     public float w;
     public float h;
 
@@ -9,14 +9,14 @@ public class Hitbox {
     public float r;
     public float t;
     public float b;
-    
+
     public float vx;
     public float vy;
 
     public Hitbox(int l, int t, int w, int h) {
-        this.l = l; 
+        this.l = l;
         this.r = l + w;
-        this.t = t; 
+        this.t = t;
         this.b = t + h;
 
         this.w = w;
@@ -25,21 +25,32 @@ public class Hitbox {
     }
 
     public void moveRelative(float vx, float vy) {
-        this.l += vx; 
+        this.l += vx;
         this.t += vy;
         this.r = this.l + this.w;
         this.b = this.t + this.h;
+    }
+
+    public void jumping(float vx, float vy) {
+
+        this.l += vx;
+        this.t += vy;
+        vy--;
+        this.r = this.l + this.w;
+        this.b = this.t + this.h;
+
+
     }
 
     public void moveRelative() {
-        this.l += vx; 
+        this.l += vx;
         this.t += vy;
         this.r = this.l + this.w;
         this.b = this.t + this.h;
     }
 
-    public void moveTo(float x, float y){
-        this.l = x; 
+    public void moveTo(float x, float y) {
+        this.l = x;
         this.t = y;
         this.r = this.l + this.w;
         this.b = this.t + this.h;
@@ -64,5 +75,5 @@ public class Hitbox {
         this.t = t;
         this.b = t + this.h;
     }
-    
+
 }
