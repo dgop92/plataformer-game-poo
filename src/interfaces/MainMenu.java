@@ -1,5 +1,8 @@
 package interfaces;
 
+import plataformer.map.GameSketch;
+import plataformer.map.ScreenSize;
+
 public class MainMenu extends javax.swing.JFrame {
 
     boolean sw = false;
@@ -132,7 +135,10 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_controlesActionPerformed
 
     private void empezarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezarActionPerformed
-      
+        GameSketch g = new GameSketch();
+        g.setScreenSize(new ScreenSize(768, 768, 48));
+        g.run();
+        this.dispose();
     }//GEN-LAST:event_empezarActionPerformed
 
     private void empezarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empezarMousePressed

@@ -1,14 +1,23 @@
 package plataformer.map;
 
+import javax.swing.JFrame;
+
+import interfaces.MainMenu;
 import plataformer.entities.alive.ControlablePlayer;
-import plataformer.map.worlds.TestWorld;
 import plataformer.map.worlds.World;
+import plataformer.map.worlds.WorldGrass1;
+import plataformer.map.worlds.WorldGrass2;
+import plataformer.map.worlds.WorldBrick1;
+import plataformer.map.worlds.WorldBrick2;
 import processing.core.PApplet;
+
+import processing.awt.PSurfaceAWT.SmoothCanvas;
 
 public class GameSketch extends PApplet{
 
     private ScreenSize screenSize;
     private World currwWord;
+    int worldNumber = 1;
 
     @Override
     public void settings() {
@@ -17,13 +26,16 @@ public class GameSketch extends PApplet{
 
     @Override
     public void setup() {
-        currwWord = new TestWorld(this);
+        currwWord = new WorldGrass1(this);
         currwWord.initWorld();
     }
 
     @Override
     public void draw() {
         currwWord.updateWorld();
+        if(currwWord.getControlablePlayers().isEmpty()){
+            manageGameOver();
+        }
     }
 
     public void run() {
@@ -53,5 +65,41 @@ public class GameSketch extends PApplet{
         this.screenSize = screenSize;
     }
 
-    
+    public void changeToNextWorld(){
+        this.noLoop();
+        switch (worldNumber) {
+            case 2:
+                currwWord = new WorldGrass2(this);
+                currwWord.initWorld();
+                break;
+            case 3:
+                currwWord = new WorldBrick1(this);
+                currwWord.initWorld();
+                break;
+            case 4:
+                currwWord = new WorldBrick2(this);
+                currwWord.initWorld();
+                break;
+            default:
+                break;
+        }
+        worldNumber += 1;
+        this.loop();
+    }
+
+    public void manageGameOver(){
+        noLoop();
+        this.dispose();
+        SmoothCanvas smoothCanvas = (SmoothCanvas)this.getSurface().getNative();
+        JFrame frame = (JFrame) smoothCanvas.getFrame();
+        frame.dispose();
+        MainMenu mainmenu = new MainMenu();
+        mainmenu.setBounds(100, 100, 844, 660);
+        mainmenu.setVisible(true);
+    }
+
+    @Override
+    public void mouseClicked() {
+        changeToNextWorld();
+    }
 }

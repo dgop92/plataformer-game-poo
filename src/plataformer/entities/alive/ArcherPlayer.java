@@ -55,37 +55,8 @@ public class ArcherPlayer extends Player {
     public void draw() {
         gSketch.fill(255);
 
-//        gSketch.rect(
-//                hitbox.l, hitbox.t, hitbox.w, hitbox.h);
         gSketch.image(Img,
                 hitbox.l - 17, hitbox.t - 10, hitbox.w + 35, hitbox.h + 10);
-        this.gSketch.textSize(12f);
-        this.gSketch.fill(0, 0, 255);
-        this.gSketch.text(
-                "l:" + hitbox.l,
-                hitbox.l,
-                hitbox.t - 40
-        );
-        this.gSketch.text(
-                "r:" + hitbox.r,
-                hitbox.l + 50,
-                hitbox.t - 40
-        );
-        this.gSketch.text(
-                "t:" + hitbox.t,
-                hitbox.l,
-                hitbox.t - 20
-        );
-        this.gSketch.text(
-                "b:" + hitbox.b,
-                hitbox.l + 50,
-                hitbox.t - 20
-        );
-        this.gSketch.text(
-                "life:" + stats.getLife(),
-                hitbox.l + 65,
-                hitbox.t - 60
-        );
 
     }
 

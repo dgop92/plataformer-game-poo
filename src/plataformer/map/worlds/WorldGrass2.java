@@ -64,6 +64,7 @@ public class WorldGrass2 extends World{
         PImage grass;
         grass = this.gSketch.loadImage("data/worldsprite/grass.png");
         setWorldBgImage(grass);
+        setNextWorldPoint(new Point(730, 450));
         
     }
 
@@ -71,33 +72,35 @@ public class WorldGrass2 extends World{
     protected void createPlayers() {
         
         PlayerFactory playerFactory = new PlayerFactory(gSketch);
-        Player testPlayer = playerFactory.createPlayer(
-            PlayerType.TESTPLAYER, 
-            new Point(300, 250)
+        Player archPlayer = playerFactory.createPlayer(
+            PlayerType.ARCHERPLAYER, 
+            new Point(20, 200)
         );
         
-        entityManager.registerEntity(testPlayer);
+        entityManager.registerEntity(archPlayer);
+        setWorldPlayer(archPlayer);
 
     }
 
     @Override
     protected void createMounsters() {
         MounsterFactory mounsterFactory = new MounsterFactory(gSketch);
-        Mounster testMounster = mounsterFactory.createMounster(
-            MounsterType.TESTMOUNSTER, 
-            new Point(450, 225)
-        );
-        Mounster testMounster2 = mounsterFactory.createMounster(
-            MounsterType.TESTMOUNSTER, 
-            new Point(550, 225)
-        );
-        Mounster testMounster3 = mounsterFactory.createMounster(
-            MounsterType.TESTMOUNSTER, 
-            new Point(195, 225)
-        );
-        entityManager.registerEntity(testMounster);
-        entityManager.registerEntity(testMounster2);
-        entityManager.registerEntity(testMounster3);
+
+        Point[] points = new Point[]{
+            new Point(50, 50),
+            new Point(200, 10),
+            new Point(300, 80),
+            new Point(500, 10),
+            new Point(700, 10),
+        };
+
+        for (Point point : points) {
+            Mounster c = mounsterFactory.createMounster(
+                MounsterType.CYCLOP,
+                point
+            );
+            entityManager.registerEntity(c);   
+        }
     }
 
     @Override

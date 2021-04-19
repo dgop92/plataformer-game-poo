@@ -64,39 +64,43 @@ public class WorldBrick2 extends World{
         PImage brick;
         brick = this.gSketch.loadImage("data/worldsprite/brick.png");
         setWorldBgImage(brick);
+        setNextWorldPoint(new Point(730, 450));
     }
 
     @Override
     protected void createPlayers() {
         
         PlayerFactory playerFactory = new PlayerFactory(gSketch);
-        Player testPlayer = playerFactory.createPlayer(
-            PlayerType.TESTPLAYER, 
-            new Point(300, 250)
+        Player archPlayer = playerFactory.createPlayer(
+            PlayerType.ARCHERPLAYER, 
+            new Point(20, 550)
         );
         
-        entityManager.registerEntity(testPlayer);
+        entityManager.registerEntity(archPlayer);
+        setWorldPlayer(archPlayer);
 
     }
 
     @Override
     protected void createMounsters() {
+        
         MounsterFactory mounsterFactory = new MounsterFactory(gSketch);
-        Mounster testMounster = mounsterFactory.createMounster(
-            MounsterType.TESTMOUNSTER, 
-            new Point(450, 225)
-        );
-        Mounster testMounster2 = mounsterFactory.createMounster(
-            MounsterType.TESTMOUNSTER, 
-            new Point(550, 225)
-        );
-        Mounster testMounster3 = mounsterFactory.createMounster(
-            MounsterType.TESTMOUNSTER, 
-            new Point(195, 225)
-        );
-        entityManager.registerEntity(testMounster);
-        entityManager.registerEntity(testMounster2);
-        entityManager.registerEntity(testMounster3);
+        
+        Point[] points = new Point[]{
+            new Point(200, 250),
+            new Point(300, 250),
+            new Point(400, 250),
+            new Point(550, 250),
+            new Point(750, 150)
+        };
+
+        for (Point point : points) {
+            Mounster c = mounsterFactory.createMounster(
+                MounsterType.CYCLOP,
+                point
+            );
+            entityManager.registerEntity(c);   
+        }
     }
 
     @Override
