@@ -10,38 +10,21 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu() {
         initComponents();
 
-        Music_off.setVisible(false);
-
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Music_off = new javax.swing.JLabel();
-        Nota = new javax.swing.JLabel();
         empezar = new javax.swing.JButton();
-        musica = new javax.swing.JButton();
         controles = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(new java.awt.Dimension(900, 800));
         getContentPane().setLayout(null);
-
-        Music_off.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Music_off.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/equiz_roja.png"))); // NOI18N
-        getContentPane().add(Music_off);
-        Music_off.setBounds(740, 0, 90, 70);
-
-        Nota.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Nota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/nota.png"))); // NOI18N
-        getContentPane().add(Nota);
-        Nota.setBounds(760, 10, 50, 50);
 
         empezar.setBackground(new java.awt.Color(204, 255, 204));
         empezar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -66,49 +49,24 @@ public class MainMenu extends javax.swing.JFrame {
         getContentPane().add(empezar);
         empezar.setBounds(270, 310, 250, 70);
 
-        musica.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        musica.setText("MUSIC ON");
-        musica.setBorderPainted(false);
-        musica.setContentAreaFilled(false);
-        musica.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        musica.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                musicaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(musica);
-        musica.setBounds(710, 50, 150, 38);
-
         controles.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         controles.setForeground(new java.awt.Color(255, 255, 153));
         controles.setText("CONTROLES");
         controles.setBorderPainted(false);
         controles.setContentAreaFilled(false);
+        controles.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         controles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 controlesActionPerformed(evt);
             }
         });
         getContentPane().add(controles);
-        controles.setBounds(680, 560, 160, 40);
+        controles.setBounds(680, 470, 160, 130);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/mando2.png"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(710, 480, 110, 90);
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 153));
-        jButton1.setText("CREDITOS");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        getContentPane().add(jButton1);
-        jButton1.setBounds(10, 580, 130, 38);
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/creditos2.png"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 500, 90, 80);
 
         Fondo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         Fondo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -121,17 +79,10 @@ public class MainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void musicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicaActionPerformed
-        sw = !sw;
-        Music_off.setVisible(sw);
-        if (sw)
-            musica.setText("MUSIC OFF");
-        else
-            musica.setText("MUSIC ON");
-    }//GEN-LAST:event_musicaActionPerformed
-
     private void controlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_controlesActionPerformed
-        
+        Controls controls = new Controls();
+        controls.setBounds(GUIUtils.getBounds(744, 656));
+        controls.setVisible(true);
     }//GEN-LAST:event_controlesActionPerformed
 
     private void empezarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empezarActionPerformed
@@ -142,11 +93,11 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_empezarActionPerformed
 
     private void empezarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empezarMousePressed
-       empezar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/cartel_iluminado.png")));
+        empezar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/cartel_iluminado.png")));
     }//GEN-LAST:event_empezarMousePressed
 
     private void empezarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_empezarMouseReleased
-         empezar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/cartel_empezar2.png")));
+        empezar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/data/interfaces/cartel_empezar2.png")));
     }//GEN-LAST:event_empezarMouseReleased
 
     public static void main(String args[]) {
@@ -160,13 +111,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
-    private javax.swing.JLabel Music_off;
-    private javax.swing.JLabel Nota;
     private javax.swing.JButton controles;
     private javax.swing.JButton empezar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton musica;
     // End of variables declaration//GEN-END:variables
 }
