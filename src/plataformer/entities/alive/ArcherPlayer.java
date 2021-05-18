@@ -32,6 +32,10 @@ public class ArcherPlayer extends Player {
     private boolean isCollided;
     float oldl;
     int direccion = 1;
+    //this is temporal
+    private PImage[] lifebar;
+    PImage fullHeart;
+    PImage emptyHeart;
 
     public ArcherPlayer(GameSketch gSketch, Hitbox hitbox, Stats stats) {
         super(hitbox, stats);
@@ -48,10 +52,16 @@ public class ArcherPlayer extends Player {
         collided = false;
         isCollided = false;
         oldl = hitbox.t;
+
+        fullHeart = gSketch.loadImage("data\\player-stats\\heart-full.png");
+        emptyHeart = gSketch.loadImage("data\\player-stats\\heart-empty.png");
+        lifebar = new PImage[(int)stats.getLife() / 10];
+        for (int i = 0; i < lifebar.length; i++) {
+            lifebar[i] = fullHeart;
+        }
     }
 
     @Override
-
     public void draw() {
         gSketch.fill(255);
 
@@ -60,8 +70,21 @@ public class ArcherPlayer extends Player {
 
     }
 
+    private void updateLifeBar() {
+        int render_heart_until = (int)(stats.getLife() / lifebar.length);
+        if (render_heart_until <= 9){
+            lifebar[render_heart_until] = emptyHeart;
+        }
+        float tempX = 10;
+        for (PImage pImage : lifebar) {
+            gSketch.image(pImage, tempX, 10, 24, 24);
+            tempX += 24;
+        }
+    }
+
     @Override
     public void update() {
+        updateLifeBar();
         isCollided = oldl == hitbox.t;
         oldl = hitbox.t;
         if (isCollided == false) {

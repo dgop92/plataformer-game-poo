@@ -73,6 +73,9 @@ PImage brick;
                 break;
             case 14: 
                 brick = this.gSketch.loadImage("data\\tiles\\BRICK\\14BRICK1.png");
+                break;
+            case 15: 
+                brick = this.gSketch.loadImage("data\\tiles\\BRICK\\ladrillo columna.png");
                 break;     
             default:
                 brick = this.gSketch.loadImage("data\\tiles\\BRICK\\BRICK.png");

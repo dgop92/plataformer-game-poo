@@ -2,6 +2,7 @@ package plataformer.map;
 
 import javax.swing.JFrame;
 
+import interfaces.GUIUtils;
 import interfaces.MainMenu;
 import plataformer.entities.alive.ControlablePlayer;
 import plataformer.map.worlds.World;
@@ -80,7 +81,8 @@ public class GameSketch extends PApplet{
                 currwWord = new WorldBrick2(this);
                 currwWord.initWorld();
                 break;
-            default:
+            case 5:
+                manageGameOver();
                 break;
         }
         worldNumber += 1;
@@ -88,14 +90,18 @@ public class GameSketch extends PApplet{
     }
 
     public void manageGameOver(){
+        closeSketch();
+        MainMenu mainmenu = new MainMenu();
+        mainmenu.setBounds(GUIUtils.getBounds(844, 660));
+        mainmenu.setVisible(true);
+    }
+
+    private void closeSketch(){
         noLoop();
         this.dispose();
         SmoothCanvas smoothCanvas = (SmoothCanvas)this.getSurface().getNative();
         JFrame frame = (JFrame) smoothCanvas.getFrame();
         frame.dispose();
-        MainMenu mainmenu = new MainMenu();
-        mainmenu.setBounds(100, 100, 844, 660);
-        mainmenu.setVisible(true);
     }
 
     @Override

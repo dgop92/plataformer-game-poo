@@ -109,7 +109,6 @@ public class WorldBrick1 extends World{
     protected void updateWorldHook() {
         gSketch.textSize(14f);
         this.gSketch.fill(255);
-        this.gSketch.text("FrameRate:  "+gSketch.frameRate, 15, 15);
         
     }
 
